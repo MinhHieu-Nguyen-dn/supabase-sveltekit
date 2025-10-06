@@ -1,8 +1,7 @@
 <script lang="ts">
     import { enhance } from '$app/forms';
     import type {SubmitFunction } from '@sveltejs/kit';
-
-    // ...
+    import Avatar from './Avatar.svelte'
 
     let { data, form } = $props()
     let { session, supabase, profile } = $derived(data)
@@ -11,8 +10,7 @@
     let fullName: string = profile?.full_name ?? ''
     let username: string = profile?.username ?? ''
     let website: string = profile?.website ?? ''
-
-    // ...
+    let avatarUrl: string = $state(profile?.avatar_url ?? '')
 
     const handleSubmit: SubmitFunction = () => {
         loading = true
@@ -38,6 +36,15 @@
         use:enhance={handleSubmit}
         bind:this={profileForm}
     >
+        <Avatar
+            {supabase}
+            bind:url={avatarUrl}
+            size={10}
+            onupload={() => {
+                profileForm.requestSubmit();
+            }}
+        />
+        
         <div>
             <label for="email">Email</label>
             <input id="email" type="text" value={session.user.email} disabled />
