@@ -1,38 +1,40 @@
-# sv
+# Supabase SvelteKit User Management
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A simple user management app built with SvelteKit and Supabase. Based on the [official Supabase example](https://github.com/supabase/supabase/tree/master/examples/user-management/sveltekit-user-management).
 
-## Creating a project
+## About
 
-If you're seeing this, you've probably already done this step. Congrats!
+This project demonstrates basic authentication and account management using Supabase Auth with SvelteKit. It includes:
 
-```sh
-# create a new project in the current directory
-npx sv create
+- User sign up/sign in
+- Account profile management
+- Avatar uploads
 
-# create a new project in my-app
-npx sv create my-app
-```
+Built with SvelteKit, Supabase, and TypeScript.
 
-## Developing
+## Getting Started
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. **Install dependencies**
+   ```sh
+   npm install
+   ```
 
-```sh
-npm run dev
+2. **Set up environment variables**
+   
+   Create a `.env` file:
+   ```env
+   PUBLIC_SUPABASE_URL=your-supabase-project-url
+   PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-supabase-anon-key
+   ```
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+3. **Run the development server**
+   ```sh
+   npm run dev
+   ```
 
-## Building
+## Resources
 
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- [Tutorial: Supabase with SvelteKit](https://supabase.com/docs/guides/getting-started/tutorials/with-sveltekit)
+- [Original Example Repository](https://github.com/supabase/supabase/tree/master/examples/user-management/sveltekit-user-management)
+- [Supabase Documentation](https://supabase.com/docs)
+- [SvelteKit Documentation](https://kit.svelte.dev/docs)
