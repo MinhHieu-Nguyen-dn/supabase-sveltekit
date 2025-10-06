@@ -26,7 +26,7 @@
 			avatarUrl = url
 		} catch (error) {
 			if (error instanceof Error) {
-				console.log('Error downloading image: ', error.message)
+				console.error('Error downloading image: ', error.message)
 			}
 		}
 	}
@@ -34,6 +34,14 @@
 	const uploadAvatar = async () => {
 		try {
 			uploading = true
+
+			if (!supabase) {
+				throw new Error('Supabase client is not available')
+			}
+
+			if (!supabase.storage) {
+				throw new Error('Storage is not available on Supabase client')
+			}
 
 			if (!files || files.length === 0) {
 				throw new Error('You must select an image to upload.')
